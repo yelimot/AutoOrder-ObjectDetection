@@ -16,10 +16,12 @@ Installation
     
     pip install requests
 
-3 - for once : in the directory do 
+3 - Change venv/pyenv.cfg python path for your PC
+
+4 - for once : in the directory do 
 
     chmod u+x run.sh
 
-4 - to run : 
+5 - to run : 
 
     ./run.sh
