@@ -14,7 +14,7 @@ Installation
     
     pip install easyocr
     
-    pip install python-dotenv
+    pip install requests
 
 3 - for once : in the directory do 
 
