@@ -5,10 +5,9 @@ from io import BytesIO
 
 
 
-def analyse():
+def analyse(f):
     try:
-        imageResponse = requests.get("https://i.hizliresim.com/logn4ym.jpg")
-        img = Image.open(BytesIO(imageResponse.content))
+        img = Image.open(f)
 
         reader = easyocr.Reader(['en'])
         ocr_result = reader.readtext(img, paragraph="False")
