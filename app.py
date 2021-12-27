@@ -6,8 +6,9 @@ app = Flask(__name__)
 
 @app.route('/analyse', methods=['POST'])
 def index():
+    config = request.form.get("config")
     f = request.files['image']
-    result = td.analyse(f)
+    result = td.analyse(f,config)
     response = app.response_class(response=json.dumps("Error"), status=201, mimetype='application/json')
     
     if(result != "Error"):

@@ -1,36 +1,32 @@
 import easyocr
 from PIL import Image
-import requests
-from io import BytesIO
+from flask import json
 
 
-
-def analyse(f):
+def analyse(f, config):
     try:
         img = Image.open(f)
+        configArray = json.loads(config)
 
         reader = easyocr.Reader(['en'])
         ocr_result = reader.readtext(img, paragraph="False")
-        
-        # filtering the results
-        config = ['Milk', "Juice", "Yoghurt", "Egg", "Cheese", "Chocolate"]
-
-        newConfig = convertArrayToLowerCase(config)
+       
+        newConfig = convertArrayToCapitalizeCase(configArray)
 
         products_result = []
         for i in ocr_result:
             if i[1].isupper():
                 products_result.append(i[1])
 
-        lowerProductResult = convertArrayToLowerCase(products_result)
-        return (list(set(newConfig) - set(lowerProductResult)))
+        capitalizeProductResult = convertArrayToCapitalizeCase(products_result)
+        return (list(set(newConfig) - set(capitalizeProductResult)))
 
     except:
         return("Error")
 
 
-def convertArrayToLowerCase(arr):
+def convertArrayToCapitalizeCase(arr):
     newArr = []
     for i in arr:
-        newArr.append(i.lower())
+        newArr.append(i.title())
     return newArr
