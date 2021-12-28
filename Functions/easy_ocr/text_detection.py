@@ -6,12 +6,11 @@ from flask import json
 def analyse(f, config):
     try:
         img = Image.open(f)
-        configArray = json.loads(config)
 
         reader = easyocr.Reader(['en'])
         ocr_result = reader.readtext(img, paragraph="False")
        
-        newConfig = convertArrayToCapitalizeCase(configArray)
+        newConfig = convertArrayToCapitalizeCase(config)
 
         products_result = []
         for i in ocr_result:
@@ -21,8 +20,8 @@ def analyse(f, config):
         capitalizeProductResult = convertArrayToCapitalizeCase(products_result)
         return (list(set(newConfig) - set(capitalizeProductResult)))
 
-    except:
-        return("Error")
+    except Exception as err:
+        return(err)
 
 
 def convertArrayToCapitalizeCase(arr):
