@@ -9,7 +9,7 @@ def index():
     config = request.form.get("config")
     f = request.files['image']
     result = td.analyse(f,config)
-    response = app.response_class(response=json.dumps("Error"), status=201, mimetype='application/json')
+    response = app.response_class(response=json.dumps(result), status=201, mimetype='application/json')
     
     if(result != "Error"):
         response = app.response_class(response=json.dumps(result), status=200, mimetype='application/json')
