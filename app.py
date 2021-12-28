@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 @app.route('/analyse', methods=['POST'])
 def index():
-    print(str(request))
+    print(str(request.form), str(request.files))
     config = request.form.get("config")
     f = request.files['image']
     result = td.analyse(f,config)
