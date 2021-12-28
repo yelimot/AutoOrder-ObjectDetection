@@ -21,6 +21,7 @@ def analyse(f, config):
         return (list(set(newConfig) - set(capitalizeProductResult)))
 
     except Exception as err:
+        print(err)
         return(err)
 
 
