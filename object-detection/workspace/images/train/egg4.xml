@@ -1,0 +1,26 @@
+<annotation>
+	<folder>egg</folder>
+	<filename>egg4.jpg</filename>
+	<path>C:\6\TFODCourse\Tensorflow\workspace\images\collectedimages\egg\egg4.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>998</width>
+		<height>1080</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>egg</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>74</xmin>
+			<ymin>576</ymin>
+			<xmax>653</xmax>
+			<ymax>919</ymax>
+		</bndbox>
+	</object>
+</annotation>
